@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AdItem } from './ad-item';
+import { AdService } from './ad.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-comp-directive';
+
+  ads: AdItem[] = [];
+
+  constructor(private adService: AdService) {}
+
+  ngOnInit() {
+    this.ads = this.adService.getAds();
+  }
 }
