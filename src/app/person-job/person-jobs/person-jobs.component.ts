@@ -24,7 +24,6 @@ export class PersonJobsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.loadComponent();
-    //this.getAds();
   }
 
   ngOnDestroy() {
@@ -32,16 +31,11 @@ export class PersonJobsComponent implements OnInit, OnDestroy {
   }
 
   loadComponent() {
-    // this.currentAdIndex = (this.currentAdIndex + 1) % this.ads.length;
-    // const adItem = this.ads[this.currentAdIndex];
-
     const viewContainerRef = this.personHost.viewContainerRef;
     viewContainerRef.clear();
     this.personJobs.forEach(element => {
       const componentRef = viewContainerRef.createComponent<PersonComponent>(element.component);
       componentRef.instance.data = element.data;
     });
-
-
   }
 }
